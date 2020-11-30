@@ -1,0 +1,58 @@
+.currentcity {
+  font-size: 50px;
+  font-weight: normal;
+  color: #ecf4f3;
+}
+.currentTemp {
+  color: #ecf4f3;
+  font-size: 58px;
+}
+.tempdescription {
+  font-size: 30px;
+  color: #006a71;
+  display: block;
+  text-transform: capitalize;
+}
+
+.fas {
+  font-size: 60px;
+  color: #ff7e67;
+}
+
+.myAccount {
+  font-size: 12px;
+  color: #006a71;
+  text-decoration: none;
+}
+.myAccount:hover {
+  text-decoration: none;
+  color: #ecf4f3;
+  cursor: default;
+}
+
+.myName {
+  font-size: 12px;
+  color: #006a71;
+  text-align: left;
+}
+
+.change {
+  font-size: 12px;
+  color: #006a71;
+  border-style: hidden;
+  background-color: #68b0ab;
+}
+button:hover {
+  color: #ecf4f3;
+  border-style: hidden;
+  cursor: default;
+}
+
+.todayDate {
+  font-size: 12px;
+  color: #006a71;
+}
+.buttonLines {
+  font-size: 12px;
+  color: #006a71;
+}

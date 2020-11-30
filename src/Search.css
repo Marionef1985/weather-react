@@ -1,0 +1,44 @@
+.search-city {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  width: 95%;
+}
+
+.btnGo {
+  padding: 5px 14px;
+  background-color: #68b0ab;
+  border-radius: 10px;
+  border-style: double;
+  border-color: #ecf4f3;
+  color: #ecf4f3;
+}
+
+.btnCurrent {
+  padding: 5px 14px;
+  background-color: #68b0ab;
+  border-radius: 10px;
+  border-style: double;
+  border-color: #ecf4f3;
+  color: #ecf4f3;
+  margin-right: 200px;
+  margin-bottom: 20px;
+}
+button.btnGo:hover {
+  background-color: #006a71;
+  border-style: double;
+  border-color: #006a71;
+  color: #ecf4f3;
+  transition-delay: 0.5ms;
+  font-weight: normal;
+  cursor: pointer;
+}
+button.btnCurrent:hover {
+  background-color: #006a71;
+  border-style: double;
+  border-color: #006a71;
+  color: #ecf4f3;
+  transition-delay: 0.5ms;
+  font-weight: normal;
+  cursor: pointer;
+}
