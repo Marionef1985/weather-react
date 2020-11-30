@@ -29,7 +29,7 @@ export default function Todaycard() {
             </div>
             <br />
             <div className="col-12">
-              <i className="fas fa-sun"></i>
+              <i class="wi wi-owm-01d"></i>
             </div>
             <br />
             <Description />
