@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./WeatherApp.css";
+import FormattedDate from "./FormattedDate";
 //import Todaycard from "./Todaycard";
 import Forecast from "./Forecast";
 import Loader from 'react-loader-spinner'
@@ -22,7 +23,7 @@ export default function WeatherApp(props){
   //precipitation:((response.data.rain.1h)*100),
   feelsLike:(Math.round(response.data.main.feels_like)),
   humidity:(response.data.main.humidity),
-  date:"Monday 8th"
+  date:new Date(response.data.dt *1000)
   })
   }
 
@@ -115,7 +116,9 @@ export default function WeatherApp(props){
                 <br />
                 <div className="row">
                   <div className="col-12">
-                    <span className="buttonLines">{weatherData.date}</span>
+                    <span className="buttonLines">
+                      <FormattedDate date={weatherData.date}/>
+                      </span>
                     <button className="change">
                       ºC
                     </button>
