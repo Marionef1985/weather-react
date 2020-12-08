@@ -3,9 +3,10 @@ import axios from "axios";
 import "./WeatherApp.css";
 //import Todaycard from "./Todaycard";
 import Forecast from "./Forecast";
+import Loader from 'react-loader-spinner'
 
 
-export default function WeatherApp(){
+export default function WeatherApp(props){
   const [weatherData, setweatherData] = useState({ready:false});
   function handleResponse(response){
   console.log(response.data)
@@ -20,7 +21,8 @@ export default function WeatherApp(){
   windSpeed:(Math.round(response.data.wind.speed)),
   //precipitation:((response.data.rain.1h)*100),
   feelsLike:(Math.round(response.data.main.feels_like)),
-  humidity:(response.data.main.humidity)
+  humidity:(response.data.main.humidity),
+  date:"Monday 8th"
   })
   }
 
@@ -113,6 +115,7 @@ export default function WeatherApp(){
                 <br />
                 <div className="row">
                   <div className="col-12">
+                    <span className="buttonLines">{weatherData.date}</span>
                     <button className="change">
                       ºC
                     </button>
@@ -176,10 +179,19 @@ export default function WeatherApp(){
   ) 
   } else {
   const apiKey="4618b7617a5cf5299e42edf3e250ff0a";
-  const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=Pilsen&appid=${apiKey}&units=metric`;
+  const apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultcity}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(handleResponse);
 
-  return "Loading..."
+  return (
+        <Loader
+         type="Puff"
+         color="#006a71"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+ 
+      />
+    )
   }
 }
