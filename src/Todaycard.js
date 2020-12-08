@@ -1,14 +1,16 @@
 import React from "react";
 import "./Todaycard.css";
+import FormattedDate from "./FormattedDate";
 
-export default function Todaycard(){
+export default function Todaycard(props){
     return (
+      <div className="weatherinfo">
         <div className="card-body">
             <div className="row">
               <div className="col-12">
                 <h1>
                   <div className="currentcity">
-                    Barcelona
+                    {props.data.name}
                   </div>
                 </h1>
               </div>
@@ -18,30 +20,29 @@ export default function Todaycard(){
               <div className="col-12">
                 <div>
                   <span className="currentTemp">
-                    20
+                    {props.data.temperature}
                   </span>
                   <span className="currentTemp">
                     ºC
                   </span>
                 </div>
                 <div className="tempdescription">
-                  Sunny
+                  {props.data.description}
                 </div>
                 <br />
-                <div className="col-12">
-                  <i className="fas fa-sun todayIcon"></i>
+                <div className="col-12 clearfix">
+                  <image src={props.data.iconUrl} alt={props.data.description} className="todayIcon"/>
                 </div>
                 <br />
                 <div className="row">
                   <div className="col-12">
                     <span className="minTemperatureToday">Min: </span>
                     <span className="minTemperatureToday">
-                      15ºC
+                      {props.data.minTemp}ºC
                     </span>
-                    <span className="minTemperatureToday"> </span>
                     <span className="maxTemperatureToday">|| Max: </span>
                     <span className="maxTemperatureToday">
-                      22ºC
+                      {props.data.maxTemp}ºC
                     </span>
                     <span className="maxTemperatureToday"></span>
                   </div>
@@ -49,9 +50,8 @@ export default function Todaycard(){
                 <div className="row">
                   <div className="col-12">
                     <span className="minTemperatureToday">Wind Speed: </span>
-                    <span className="minTemperatureToday"></span>
                     <span className="maxTemperatureToday">
-                      10km/hr{" "}
+                      {props.data.windSpeed}km/hr{" "}
                     </span>
                     <span className="maxTemperatureToday"></span>
                   </div>
@@ -59,25 +59,23 @@ export default function Todaycard(){
                 <div className="row">
                   <div className="col-12">
                     <span className="minTemperatureToday">Precipitation: </span>
-                    <span className="minTemperatureToday"></span>
                     <span className="maxTemperatureToday">
-                      15
+                      {props.data.precipitation}%
                     </span>
-                    <span className="maxTemperatureToday">%</span>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-12">
                     <span className="minTemperatureToday"> Feels Like: </span>
                     <span className="maxTemperatureToday">
-                      19
+                      {props.data.feelsLike}
                     </span>
                     <span className="maxTemperature">ºC</span>
                   </div>
                   <div className="col-12">
                     <span className="minTemperatureToday"> Humidity: </span>
                     <span className="maxTemperatureToday">
-                      50
+                      {props.data.humidity}
                     </span>
                     <span className="humidityToday maxTemperatureToday"> % </span>
                   </div>
@@ -85,6 +83,9 @@ export default function Todaycard(){
                 <br />
                 <div className="row">
                   <div className="col-12">
+                    <span className="buttonLines">
+                      <FormattedDate date={props.data.date}/>
+                      </span>
                     <button className="change">
                       ºC
                     </button>
@@ -111,5 +112,6 @@ export default function Todaycard(){
               </div>
             </div>
           </div>
+      </div>
     )
 }

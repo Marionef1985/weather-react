@@ -14,9 +14,8 @@
   text-transform: capitalize;
 }
 
-.fas {
+.todayIcon {
   font-size: 60px;
-  color: #ff7e67;
 }
 
 .myAccount {
