@@ -29,9 +29,8 @@ export default function Todaycard(props){
                 <div className="tempdescription">
                   {props.data.description}
                 </div>
-                <br />
-                <div className="col-12 clearfix">
-                  <image src={props.data.iconUrl} alt={props.data.description} className="todayIcon"/>
+                <div className="col-12 clearfix todayIcon">
+                  <img src={props.data.icon} alt={props.data.description}/>
                 </div>
                 <br />
                 <div className="row">
@@ -40,7 +39,7 @@ export default function Todaycard(props){
                     <span className="minTemperatureToday">
                       {props.data.minTemp}ºC
                     </span>
-                    <span className="maxTemperatureToday">|| Max: </span>
+                    <span className="maxTemperatureToday">{" "}|| Max: </span>
                     <span className="maxTemperatureToday">
                       {props.data.maxTemp}ºC
                     </span>
