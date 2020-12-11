@@ -7,11 +7,11 @@ import Loader from 'react-loader-spinner'
 
 export default function WeatherApp(props){
   
-  const [weatherData, setweatherData] = useState({ready:false});
-  const [city, setCity] = useState(props.defaultcity)
+  const [weatherData, setWeatherData] = useState({ready:false});
+  const [city, setCity] = useState(props.defaultcity);
   
   function handleResponse(response){
-  setweatherData({
+  setWeatherData({
   ready:true,
   name:(response.data.name),
   temperature:(Math.round(response.data.main.temp)),
@@ -20,7 +20,6 @@ export default function WeatherApp(props){
   minTemp:(Math.round(response.data.main.temp_min)),
   maxTemp:(Math.round(response.data.main.temp_max)),
   windSpeed:(Math.round(response.data.wind.speed)),
-  //precipitation:(response.data.list[0].pop)*100),
   feelsLike:(Math.round(response.data.main.feels_like)),
   humidity:(response.data.main.humidity),
   date:new Date(response.data.dt *1000)
@@ -43,6 +42,20 @@ export default function WeatherApp(props){
    axios.get(apiUrl).then(handleResponse);
   }
 
+  function showPosition(position) {
+    const apiKey="4618b7617a5cf5299e42edf3e250ff0a";
+    let lat= position.coords.latitude;
+    let lon= position.coords.longitude;
+    let currentUrl=`https:api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  
+    axios.get(currentUrl).then(handleResponse);
+  }
+
+  function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+  }
+
+  
   if (weatherData.ready) {
     return(  
     <div>
@@ -69,7 +82,7 @@ export default function WeatherApp(props){
                   </div>
                 </form>
                 <div className="col-12">
-                  <button className="btnCurrent">
+                  <button className="btnCurrent" onClick={getCurrentPosition}>
                     Current
                   </button>
                   <button className="btnGo" onClick={handleSubmit}>
@@ -84,7 +97,7 @@ export default function WeatherApp(props){
         </div>
       </div>
     </div>
-  ) 
+  )
   } else {
     search();
     return (
