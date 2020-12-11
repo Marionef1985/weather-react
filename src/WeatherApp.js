@@ -18,7 +18,7 @@ export default function WeatherApp(props){
   name:(response.data.name),
   temperature:(Math.round(response.data.main.temp)),
   description:(response.data.weather[0].description),
-  icon:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+  icon:(response.data.weather[0].icon),
   minTemp:(Math.round(response.data.main.temp_min)),
   maxTemp:(Math.round(response.data.main.temp_max)),
   windSpeed:(Math.round(response.data.wind.speed)),

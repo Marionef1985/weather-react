@@ -1,6 +1,7 @@
 import React from "react";
 import "./Todaycard.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Todaycard(props){
     return (
@@ -30,9 +31,8 @@ export default function Todaycard(props){
                   {props.data.description}
                 </div>
                 <div className="col-12 clearfix todayIcon">
-                  <img src={props.data.icon} alt={props.data.description}/>
+                  <WeatherIcon code={props.data.icon} />
                 </div>
-                <br />
                 <div className="row">
                   <div className="col-12">
                     <span className="minTemperatureToday">Min: </span>
