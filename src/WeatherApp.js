@@ -5,8 +5,6 @@ import Todaycard from "./Todaycard";
 import Forecast from "./Forecast";
 import Loader from 'react-loader-spinner'
 
-
-
 export default function WeatherApp(props){
   
   const [weatherData, setweatherData] = useState({ready:false});

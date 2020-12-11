@@ -2,6 +2,7 @@ import React from "react";
 import "./Todaycard.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function Todaycard(props){
     return (
@@ -19,14 +20,7 @@ export default function Todaycard(props){
               <br />
               <br />
               <div className="col-12">
-                <div>
-                  <span className="currentTemp">
-                    {props.data.temperature}
-                  </span>
-                  <span className="currentTemp">
-                    ºC
-                  </span>
-                </div>
+                <WeatherTemperature celsius={props.data.temperature} />
                 <div className="tempdescription">
                   {props.data.description}
                 </div>
@@ -57,14 +51,6 @@ export default function Todaycard(props){
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <span className="minTemperatureToday">Precipitation: </span>
-                    <span className="maxTemperatureToday">
-                      {props.data.precipitation}%
-                    </span>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-12">
                     <span className="minTemperatureToday"> Feels Like: </span>
                     <span className="maxTemperatureToday">
                       {props.data.feelsLike}
@@ -82,16 +68,9 @@ export default function Todaycard(props){
                 <br />
                 <div className="row">
                   <div className="col-12">
-                    <span className="buttonLines">
+                    <span className="date">
                       <FormattedDate date={props.data.date}/>
                       </span>
-                    <button className="change">
-                      ºC
-                    </button>
-                    <span className="buttonLines"> || </span>
-                    <button className="change">
-                      ºF
-                    </button>
                     <span className="todayDate"></span>
                   </div>
                 </div>

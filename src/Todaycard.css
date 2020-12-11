@@ -7,6 +7,27 @@
   color: #ecf4f3;
   font-size: 58px;
 }
+.unitLine{
+  color: #ecf4f3;
+  font-size: 25px;
+  margin-left: 2px;
+}
+.celsius {
+  color: #ecf4f3;
+  font-size: 25px;
+  margin-left: 2px;
+}
+.unit {
+  color: #ecf4f3;
+  font-size: 25px;
+  margin-left: 2px;
+  text-decoration: none;
+}
+ .unit:hover{
+   color:#006a71;
+   text-decoration: none;
+ }
+
 .tempdescription {
   font-size: 30px;
   color: #006a71;
@@ -52,7 +73,7 @@ button:hover {
   color: #006a71;
 }
 
-.buttonLines {
+.date {
   font-size: 12px;
   color: #006a71;
 }
