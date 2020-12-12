@@ -1,7 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
+import Loader from 'react-loader-spinner'
 import "./Forecast.css";
+import WeatherIconForecast from "./WeatherIconForecast";
+import DayOne from "./DayOne"
 
-export default function Forecast() {
+export default function Forecast(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+  function handleForecastResponse(response){
+    setForecast(response.data);
+    setLoaded(true);
+  }
+
+  if (loaded) {
   return(
     <div>
       <section className="col-12 second-card">
@@ -10,19 +23,19 @@ export default function Forecast() {
             Tomorrow
           </div>
             <div className="col-1">
-              <i className="fas fa-sun icon-right"></i>
+              <WeatherIconForecast code={forecast.list[6].weather[0].icon}/>
             </div>
             <div className="col-7 minMaxFutureDays">
               <span className="minTemperature">Temp: </span>
               <span className="maxTemperature">
-                18
+                {Math.round(forecast.list[6].main.temp)}
               </span>
               <span className="maxTemperature">ºC</span>
               <div className="minTemperature">
                 Forecast:
                 <span className="maxTemperature">
                   {" "}
-                  Sunny
+                  {forecast.list[6].weather[0].main}
                 </span>
                 <span className="maxTemperature"></span>
               </div>
@@ -31,22 +44,22 @@ export default function Forecast() {
           <br />
           <div className="row">
             <div className="col-4 weekDays">
-              Monday
+              <DayOne />
             </div>
             <div className="col-1">
-              <i className="fas fa-sun icon-right"></i>
+              <WeatherIconForecast code={forecast.list[14].weather[0].icon}/>
             </div>
             <div className="col-7 minMaxFutureDays">
               <span className="minTemperature">Temp: </span>
               <span className="maxTemperature">
-                22
+                {Math.round(forecast.list[14].main.temp)}
               </span>
               <span className="maxTemperature">ºC</span>
               <div className="minTemperature">
                 Forecast:
                 <span className="maxTemperature">
                   {" "}
-                  Sunny
+                  {forecast.list[14].weather[0].main}
                 </span>
                 <span className="maxTemperature"></span>
               </div>
@@ -58,19 +71,19 @@ export default function Forecast() {
               Tuesday
             </div>
             <div className="col-1">
-              <i class="fas fa-cloud-sun icon-right"></i>
+              <WeatherIconForecast code={forecast.list[22].weather[0].icon}/>
             </div>
             <div className="col-7 minMaxFutureDays">
               <span className="minTemperature">Temp: </span>
               <span className="maxTemperature">
-                16
+                {Math.round(forecast.list[22].main.temp)}
               </span>
               <span className="maxTemperature">ºC</span>
               <div className="minTemperature">
                 Forecast:
                 <span className="maxTemperature">
                   {" "}
-                  Cloudy
+                  {forecast.list[22].weather[0].main}
                 </span>
                 <span className="maxTemperature"></span>
               </div>
@@ -82,19 +95,19 @@ export default function Forecast() {
               Wednesday
             </div>
             <div className="col-1">
-              <i class="fas fa-cloud-sun icon-right"></i>
+              <WeatherIconForecast code={forecast.list[30].weather[0].icon}/>
             </div>
             <div className="col-7 minMaxFutureDays">
               <span className="minTemperature">Temp: </span>
               <span className="maxTemperature">
-                18
+                {Math.round(forecast.list[30].main.temp)}
               </span>
               <span className="maxTemperature">ºC</span>
               <div className="minTemperature">
                 Forecast:
                 <span className="maxTemperature">
                   {" "}
-                  Cloudy
+                  {forecast.list[30].weather[0].main}
                 </span>
                 <span className="maxTemperature"></span>
               </div>
@@ -106,19 +119,19 @@ export default function Forecast() {
               Thursday
             </div>
             <div className="col-1">
-              <i class="fas fa-cloud-sun icon-right"></i>
+              <WeatherIconForecast code={forecast.list[38].weather[0].icon}/>
             </div>
             <div className="col-7 minMaxFutureDays">
               <span className="minTemperature">Temp: </span>
               <span className="maxTemperature">
-                15
+                {Math.round(forecast.list[38].main.temp)}
               </span>
               <span className="maxTemperature">ºC</span>
               <div className="minTemperature">
                 Forecast:
                 <span className="maxTemperature">
                   {" "}
-                  Cloudy
+                  {forecast.list[38].weather[0].main}
                 </span>
                 <span className="maxTemperature"></span>
               </div>
@@ -127,4 +140,22 @@ export default function Forecast() {
       </section>
     </div>
   )
+  } else {
+    let apiKey = "4618b7617a5cf5299e42edf3e250ff0a";
+    let units = "metric";
+    let city = props.cityName
+    let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  
+    axios.get(apiUrlForecast).then(handleForecastResponse);
+    return (
+      <Loader
+         type="Puff"
+         color="#006a71"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+ 
+        />
+    )
+  }
 }

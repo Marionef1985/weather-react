@@ -92,7 +92,7 @@ export default function WeatherApp(props){
               </div>
             </div>
             <br />
-            <Forecast />
+            <Forecast cityName={weatherData.name} />
           </div>
         </div>
       </div>
