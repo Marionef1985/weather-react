@@ -3,7 +3,10 @@ import axios from "axios";
 import Loader from 'react-loader-spinner'
 import "./Forecast.css";
 import WeatherIconForecast from "./WeatherIconForecast";
-import DayOne from "./DayOne"
+import DayOne from "./DayOne";
+import DayTwo from "./DayTwo";
+import DayThree from "./DayThree";
+import DayFour from "./DayFour";
 
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false);
@@ -68,7 +71,7 @@ export default function Forecast(props) {
           <br />
           <div className="row">
             <div className="col-4 weekDays">
-              Tuesday
+              <DayTwo />
             </div>
             <div className="col-1">
               <WeatherIconForecast code={forecast.list[22].weather[0].icon}/>
@@ -92,7 +95,7 @@ export default function Forecast(props) {
           <br />
           <div className="row">
             <div className="col-4 weekDays">
-              Wednesday
+              <DayThree />
             </div>
             <div className="col-1">
               <WeatherIconForecast code={forecast.list[30].weather[0].icon}/>
@@ -116,7 +119,7 @@ export default function Forecast(props) {
           <br />
           <div className="row">
             <div className="col-4 weekDays">
-              Thursday
+              <DayFour />
             </div>
             <div className="col-1">
               <WeatherIconForecast code={forecast.list[38].weather[0].icon}/>

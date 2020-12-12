@@ -1,12 +1,12 @@
 import React from "react"
 
 export default function FormattedDate(props) {
-    function addZero(i) {
-  if (i < 10) {
+  function addZero(i) {
+    if (i < 10) {
     i = "0" + i;
+    }
+    return i;
   }
-  return i;
-}
     let days = [
      "Sunday",
      "Monday",
@@ -18,7 +18,7 @@ export default function FormattedDate(props) {
 ];
     let day = days[props.date.getDay()];
     let hours = addZero(props.date.getHours());
-    let minutes = addZero(props.date.getMinutes())0gggg                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+    let minutes = addZero(props.date.getMinutes())                                                                                                                                                                                                                                                                                                                                                                                                                           ;
     return (
     <span>{day} {hours}:{minutes}</span>
     )

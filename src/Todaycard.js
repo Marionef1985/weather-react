@@ -44,7 +44,7 @@ export default function Todaycard(props){
                   <div className="col-12">
                     <span className="minTemperatureToday">Wind Speed: </span>
                     <span className="maxTemperatureToday">
-                      {props.data.windSpeed}km/hr{" "}
+                      {props.data.windSpeed}km/hr
                     </span>
                     <span className="maxTemperatureToday"></span>
                   </div>

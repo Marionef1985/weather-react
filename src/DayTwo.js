@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DayOne(){
+export default function DayTwo(){
   let now = new Date();
   const days = [
     "Sunday",
@@ -11,17 +11,17 @@ export default function DayOne(){
     "Friday",
     "Saturday",
   ];
-  let dayOneNum = (now.getDay()+2);
-  function getDayOne(dayOneAn) {
-   if (dayOneNum > 6) {
-    dayOneNum = (now.getDay()+2)-7;
+  let dayTwoNum = (now.getDay()+3);
+  function getDayTwo(dayTwoAn) {
+   if (dayTwoNum > 6) {
+    dayTwoNum = (now.getDay()+3)-7;
    }
-   return dayOneAn;
+   return dayTwoAn;
   }
-  getDayOne();
+  getDayTwo();
   return (
     <div>
-      {days[dayOneNum]}
+      {days[dayTwoNum]}
     </div>
   )
 }
