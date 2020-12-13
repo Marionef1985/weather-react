@@ -1,8 +1,3 @@
-.icon-right {
-  padding-right: 10px;
-  color: #ff7e67;
-  font-size: 10px;
-}
 
 .weekDays {
   color: #ecf4f3;
@@ -10,8 +5,4 @@
 }
 .minMaxFutureDays {
   font-size: 14px;
-}
-
-.icon-right {
-  font-size: 30px;
 }

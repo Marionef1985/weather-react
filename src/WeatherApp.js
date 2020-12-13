@@ -101,7 +101,6 @@ export default function WeatherApp(props){
   )
   } else {
     search();
-    getCurrentPosition();
     
     return (
         <Loader

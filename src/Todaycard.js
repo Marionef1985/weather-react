@@ -24,7 +24,7 @@ export default function Todaycard(props){
                 <div className="tempdescription">
                   {props.data.description}
                 </div>
-                <div className="col-12 clearfix todayIcon">
+                <div className="col-12 clearfix">
                   <WeatherIcon code={props.data.icon} />
                 </div>
                 <div className="row">
@@ -71,7 +71,6 @@ export default function Todaycard(props){
                     <span className="date">
                       <FormattedDate date={props.data.date}/>
                       </span>
-                    <span className="todayDate"></span>
                   </div>
                 </div>
                 <div className="row">
