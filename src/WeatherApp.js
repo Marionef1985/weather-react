@@ -25,7 +25,7 @@ export default function WeatherApp(props){
   date:new Date(response.data.dt *1000)
   })
   }
-
+  
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -34,10 +34,11 @@ export default function WeatherApp(props){
   function hanldeCityChange(event) {
     setCity(event.target.value);
   }
-
+  
   function search() {
    const apiKey="4618b7617a5cf5299e42edf3e250ff0a";
-   let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+   let units= "metric"
+   let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
    axios.get(apiUrl).then(handleResponse);
   }
@@ -52,8 +53,8 @@ export default function WeatherApp(props){
   }
 
   function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-  }
+     navigator.geolocation.getCurrentPosition(showPosition);
+    }
 
   
   if (weatherData.ready) {
@@ -92,7 +93,7 @@ export default function WeatherApp(props){
               </div>
             </div>
             <br />
-            <Forecast cityName={weatherData.name} />
+            <Forecast city={weatherData.name} />
           </div>
         </div>
       </div>
@@ -100,6 +101,8 @@ export default function WeatherApp(props){
   )
   } else {
     search();
+    getCurrentPosition();
+    
     return (
         <Loader
          type="Puff"
